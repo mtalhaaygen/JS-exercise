@@ -1,4 +1,4 @@
-# JS-exercise
+# JS-exercises
 
 ## JS-Odev1
   Basitçe sizden girişte isminizi isteyip sonra bu ismi karşılama ekranına yerleştirerek o anki saati ve günü gösteren bir ekran yapdım. Bunu hem JavaScript ile hemde Python ile yaptım. İlginç gelebilir basit bir kurulumun ardından `<py-script>print("hello world")</py-script>` şeklinde Python kodlarınızı HTML sayfanıza ekleyebilirsiniz.
