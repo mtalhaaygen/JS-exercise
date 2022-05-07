@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            background-color: rgb(99, 99, 99);
+            color : #FB923C;
+        }
+        p {
+            font-size: 18px;
+            font-family: sans-serif;
+        }
+        div {
+            margin: 25px;
+            padding: 25px;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+</head>
+<body>
+    <div>
+    <center>
+        <img src="https://cdn.sanity.io/images/9kdepi1d/production/65c832d202a503b15d99e628f4313782f3ef50db-300x62.png" alt="kodluyoruz">
+        <p id="selam"></p>
+        <p id='today'></p>
+        <p>tarihinde <b>KODLUYORUZ FRONTEND WEB DEVELOPMENT PATİKASI</b> 'nın JavaScript bölümü 1. ödevindesiniz</p>
+    </center>
+    </div>
+
+    <hr>
+
+    <center>
+        <h1>JavaScript yerine Pyscript ile tarih-saat alalım </h1>
+        <p id="today2"></p>
+    </center>
+
+
+    <script src="jsodev1.js"></script>
+
+    <py-script>
+import asyncio
+import datetime as dt
+
+while True:
+    await asyncio.sleep(1)
+    zaman = dt.datetime.now()
+    haftaningunu = dt.datetime.strftime(zaman, '%A')
+    pyscript.write("today2",f"{zaman.day}/{zaman.month}/{zaman.year}  {zaman.hour}:{zaman.minute}:{zaman.second} {haftaningunu}")
+
+    </py-script>
+
+    
+</body>
+</html>
