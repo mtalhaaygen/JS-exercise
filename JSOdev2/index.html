@@ -17,12 +17,13 @@
     <div class="mr-1" style="position: relative">
       <div style="position: absolute; top: 0; right: 0">
         <div
-          id="liveToast"
+          id="liveToast1"
           class="toast success hide"
           role="alert"
           aria-live="assertive"
           aria-atomic="true"
           data-delay="4000"
+          data-autohide="true"
         >
           <div>
             <button
@@ -41,12 +42,13 @@
     <div class="mr-1" style="position: relative">
       <div style="position: absolute; top: 0; right: 0">
         <div
-          id="liveToast"
+          id="liveToast2"
           class="toast error hide"
           role="alert"
           aria-live="assertive"
           aria-atomic="true"
           data-delay="4000"
+          data-autohide="false"
         >
           <div>
             <button
@@ -74,14 +76,12 @@
         <span onclick="newElement()" id="liveToastBtn" class="button"
           >Ekle</span
         >
-        <span onclick="DeleteElement()" id="liveToastBtn" class="button"
-          >Sil</span
+        <span onclick="DeleteAll()" id="liveToastBtn" class="button"
+          >Temizle</span
         >
       </div>
 
-      <ul id="list">
-        <li></li>
-      </ul>
+      <ul id="list"></ul>
 
       <script
         src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
