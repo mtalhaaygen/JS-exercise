@@ -1,21 +1,34 @@
 let ulDOM = document.querySelector("#list")
 let i = 0;
-while (localStorage.getItem(i) != null) 
+
+while (localStorage.getItem(i) != null)
 {
     // bu while ile her sayfa yenilendiğinde localStroge deki veriler geri yükleniyor
     const liDOM = document.createElement("li");
-    liDOM.innerHTML = localStorage.getItem(i);
-    // liDOM.setAttribute("onclick", "textdeco()");
+    liDOM.id = i;
+    liDOM.innerHTML = `<div class="row">
+                            <span class="col-sm-11">${localStorage.getItem(i)}</span>
+                            <button type="button" class="close col-1" onclick=del_li(${i}) aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>`;
     ulDOM.append(liDOM);
     i++;
 }
+
 function newElement(){
     let veri;
     const liDOM = document.createElement("li");
-    if (veri = document.querySelector("#task").value) // sadece space eklenmesine engel ol
+    veri = document.querySelector("#task").value;
+    if (veri != "" && veri.search("  ") == -1) // sadece space eklenmesine engel olduk. Belki burası güncellenebilir edilebilir
     {
-        liDOM.innerHTML = veri;
-        // liDOM.setAttribute("onclick", "textdeco()");
+        liDOM.id = i;
+        liDOM.innerHTML = `<div class="row">
+                                <span class="col-sm-11">${veri}</span>
+                                <button type="button" class="close col-1" onclick=del_li(${i}) aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>`;
         ulDOM.append(liDOM);
         localStorage.setItem(i, veri);
         i++;
@@ -45,16 +58,14 @@ function DeleteAll(){
         console.log("liste zaten boş");
     }
 }
-function textdeco()
-{
-    item.setAttribute("style", "text-deca:red;");
-}
 
-// element.setAttribute("style", "background-color:red;");
-// let lilerim = document.querySelectorAll("li");
-// lilerim.forEach(textdeco);
-// ulDOM.onclick = function(){ // bu sayfa yenileme fonksiyonuna ihtiyaç duymamın sebebi 
-//     console.log("isaretle fonksiyonu");
-    
-// //     window.location.reload();
-// };
+function del_li(idno){
+    delElement = document.getElementById(idno); //silinecek element seçildi
+    delElement.remove();
+    while (localStorage.getItem(idno + 1) != null)
+    {
+        localStorage.setItem(idno,localStorage.getItem(idno + 1));
+        idno++;
+    }
+    localStorage.removeItem(idno);
+}
