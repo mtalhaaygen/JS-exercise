@@ -7,7 +7,7 @@ while (localStorage.getItem(i) != null)
     const liDOM = document.createElement("li");
     liDOM.id = i;
     liDOM.innerHTML = `<div class="row">
-                            <span class="col-sm-11">${localStorage.getItem(i)}</span>
+                            <span class="col-sm-11" ondblclick="isaretle(${i})">${localStorage.getItem(i)}</span>
                             <button type="button" class="close col-1" onclick=del_li(${i}) aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -24,7 +24,7 @@ function newElement(){
     {
         liDOM.id = i;
         liDOM.innerHTML = `<div class="row">
-                                <span class="col-sm-11">${veri}</span>
+                                <span class="col-sm-11" ondblclick="isaretle(${i})">${veri}</span>
                                 <button type="button" class="close col-1" onclick=del_li(${i}) aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -32,7 +32,7 @@ function newElement(){
         ulDOM.append(liDOM);
         localStorage.setItem(i, veri);
         i++;
-        console.log("oluşturuldu toast");
+        console.log("oluşturuldu toast"); // yeni eleman eklendi toast
     }
     else
     {
@@ -61,11 +61,24 @@ function DeleteAll(){
 
 function del_li(idno){
     delElement = document.getElementById(idno); //silinecek element seçildi
+    //delElement silinecek emin misiniz? TOAST
     delElement.remove();
     while (localStorage.getItem(idno + 1) != null)
     {
         localStorage.setItem(idno,localStorage.getItem(idno + 1));
         idno++;
     }
+    i--;
     localStorage.removeItem(idno);
+}
+
+function isaretle(idno){
+    isaretElement = document.getElementById(idno);
+    stil = isaretElement.style.textDecoration;
+    if (stil == "line-through")
+    {
+        isaretElement.style.textDecoration = "";
+    }else{
+        isaretElement.style.textDecoration = "line-through";
+    }
 }
