@@ -59,6 +59,7 @@ function DeleteAll(){
     }
 }
 
+
 function del_li(idno){
     delElement = document.getElementById(idno); //silinecek element seçildi
     //delElement silinecek emin misiniz? TOAST
