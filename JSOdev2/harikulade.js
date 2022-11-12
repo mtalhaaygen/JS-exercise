@@ -33,36 +33,47 @@ function newElement(){
         localStorage.setItem(i, veri);
         i++;
         console.log("oluşturuldu toast"); // yeni eleman eklendi toast
+        $('#liveToast1').toast('show');
     }
     else
     {
         console.log("boş ekleme uyarı toast");
+        $('#liveToast2').toast('show');
         //toast mesaj uyarı 
         //Listeye boş ekleme yapamazsınız!
         // id="liveToast2" 
     }
 }
 
-function DeleteAll(){
+function areYouSure()
+{
     if(ulDOM.innerHTML != "")
     {
-        // hepsi silinecek tamam or iptal if ile kontrol et
-        console.log("hepsi silinsin mi toast");
-        let ulDOM = document.querySelector("#list")
-        ulDOM.innerHTML = null;
-        i = 0;
-        localStorage.clear();
+        $('#liveToast4').toast('show');
     }
     else
     {
         console.log("liste zaten boş");
+        $('#liveToast3').toast('show');
     }
+}
+function confirmation(a)
+{
+    Boolean(a) ? DeleteAll() : console.log("silinme işlemi iptal edildi");
+    $('#liveToast4').toast('hide');
+}
+
+function DeleteAll(){
+
+	let ulDOM = document.querySelector("#list")
+	ulDOM.innerHTML = null;
+	i = 0;
+	localStorage.clear();
 }
 
 
 function del_li(idno){
     delElement = document.getElementById(idno); //silinecek element seçildi
-    //delElement silinecek emin misiniz? TOAST
     delElement.remove();
     while (localStorage.getItem(idno + 1) != null)
     {
@@ -71,6 +82,7 @@ function del_li(idno){
     }
     i--;
     localStorage.removeItem(idno);
+    window.location.assign("http://127.0.0.1:5500/JSOdev2/index.html")
 }
 
 function isaretle(idno){
@@ -82,4 +94,14 @@ function isaretle(idno){
     }else{
         isaretElement.style.textDecoration = "line-through";
     }
+}
+
+if (screen.width <= 600) {
+    let Adddom = document.querySelector("#liveToastBtnAdd");
+    let Cleardom = document.querySelector("#liveToastBtnClear");
+    let imgDom = document.querySelector("#img1");
+
+    imgDom.style = "width: 75%; background-color: white;";
+    Adddom.innerHTML = `<i class="fa-solid fa-plus"></i>`;
+    Cleardom.innerHTML = `<i class="fa-solid fa-trash"></i>`;
 }

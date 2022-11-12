@@ -11,6 +11,7 @@
       integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
       crossorigin="anonymous"
     />
+    <script src="https://kit.fontawesome.com/7bc4c0f83b.js" crossorigin="anonymous"></script>
     <title>Yapılacaklar Listesi</title>
   </head>
   <body>
@@ -35,7 +36,7 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="toast-body">Listeye eklendi.</div>
+          <div class="toast-body">Yeni görev listeye eklendi.</div>
         </div>
       </div>
     </div>
@@ -48,7 +49,7 @@
           aria-live="assertive"
           aria-atomic="true"
           data-delay="4000"
-          data-autohide="false"
+          data-autohide="true"
         >
           <div>
             <button
@@ -64,19 +65,72 @@
         </div>
       </div>
     </div>
+    <div class="mr-1" style="position: relative">
+      <div style="position: absolute; top: 0; right: 0">
+        <div
+          id="liveToast3"
+          class="toast error hide"
+          role="alert"
+          aria-live="assertive"
+          aria-atomic="true"
+          data-delay="4000"
+          data-autohide="true"
+        >
+          <div>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="toast"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="toast-body">Liste zaten boş</div>
+        </div>
+      </div>
+    </div>
+    <!-- ---------------------------------------------------------------------------------------- -->
+    <div class="mr-1" style="position: relative">
+      <div style="position: absolute; top: 42%; right: 42%; text-align: center;">
+        <div
+          id="liveToast4"
+          class="toast error hide"
+          role="alert"
+          aria-live="assertive"
+          aria-atomic="true"
+          data-autohide="false"
+        >
+          <div>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="toast"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="toast-body">Hepsi silinecek emin misiniz ?<br><br>
+            <button type="submit" onclick=confirmation(1)>Yes</button>
+            <button onclick=confirmation(0)>No</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ---------------------------------------------------------------------------------------- -->
     <div class="container">
       <div class="header">
         <img
+          id="img1"
           src="https://cdn.sanity.io/images/9kdepi1d/production/65c832d202a503b15d99e628f4313782f3ef50db-300x62.png"
           class="mb-1"
           alt=""
         />
         <h2>Yapılacaklar Listesi</h2>
         <input type="text" id="task" placeholder="Bugün ne yapacaksın?" />
-        <span onclick="newElement()" id="liveToastBtn" class="button"
-          >Add</span>
-        <span onclick="DeleteAll()" id="liveToastBtn" class="button"
-          >Clear</span>
+        <span onclick="newElement()" id="liveToastBtnAdd" class="button">Add</span>
+        <span onclick="areYouSure()" id="liveToastBtnClear" class="button">Clear</span>
       </div>
 
       <ul id="list"></ul>
