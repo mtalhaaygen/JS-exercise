@@ -88,11 +88,15 @@ function del_li(idno){
 function isaretle(idno){
     isaretElement = document.getElementById(idno);
     stil = isaretElement.style.textDecoration;
-    if (stil == "line-through")
+    stil2 = isaretElement.style.backgroundColor;
+    if (stil == "line-through" && stil2 == "orange")
     {
         isaretElement.style.textDecoration = "";
+        isaretElement.style.backgroundColor = "";
+
     }else{
         isaretElement.style.textDecoration = "line-through";
+        isaretElement.style.backgroundColor = "orange";
     }
 }
 
