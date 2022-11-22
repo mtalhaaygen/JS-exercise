@@ -63,10 +63,16 @@
   }
   
   .header {
-    background-color: #f78501;
+    background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEheGM-3NvLrY7EjN0qb2rzeQ8sK3JmYUc8J3Wxd4DeDIe4Om4t4OpwegbRLOk6P2-ViEwdaTmO1CAeyEd1uOzAiyfxRWfT4MU2jEwHfurZL_Ty8qJZtpmYmUMaVLZQNzWPxxOZxrc-6qVN0vwfvM75CtUh7kE5zEthkyiq5XumaMU2nTvK1eCs3-FTTHQ/w1684-h1069-p-k-no-nu/arkaplan.png");
+    background-position: center;
+    background-color: rgb(78, 5, 113);
     padding: 30px 40px;
     color: white;
     text-align: center;
+  }
+
+  article {
+    font-family: "myfont", Times, serif;
   }
   
   img {
@@ -105,4 +111,13 @@
   
   .button:hover {
     background-color: #bbb;
+  }
+
+  @font-face {
+
+    font-family: 'myfont';
+    src: url('src/pacifico-regular.ttf')
+format('truetype');
+    font-weight: normal;
+    font-style: normal;
   }

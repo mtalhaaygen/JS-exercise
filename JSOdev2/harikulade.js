@@ -85,27 +85,25 @@ function del_li(idno){
     window.location.assign("http://127.0.0.1:5500/JSOdev2/index.html")
 }
 
-function isaretle(idno){
+function isaretle(idno){ // bu isaretleme durumunu localstorage ile kaydedebilirsin
     isaretElement = document.getElementById(idno);
     stil = isaretElement.style.textDecoration;
     stil2 = isaretElement.style.backgroundColor;
-    if (stil == "line-through" && stil2 == "orange")
+    if (stil == "line-through" && stil2 == "purple")
     {
         isaretElement.style.textDecoration = "";
         isaretElement.style.backgroundColor = "";
 
     }else{
         isaretElement.style.textDecoration = "line-through";
-        isaretElement.style.backgroundColor = "orange";
+        isaretElement.style.backgroundColor = "purple";
     }
 }
 
 if (screen.width <= 600) {
     let Adddom = document.querySelector("#liveToastBtnAdd");
     let Cleardom = document.querySelector("#liveToastBtnClear");
-    let imgDom = document.querySelector("#img1");
 
-    imgDom.style = "width: 75%; background-color: white;";
     Adddom.innerHTML = `<i class="fa-solid fa-plus"></i>`;
     Cleardom.innerHTML = `<i class="fa-solid fa-trash"></i>`;
 }
